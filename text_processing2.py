@@ -30,12 +30,12 @@ def digits_to_words(input_string):
     """
     number_list = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
 
-    digit_string = ""
+    temp_list = []
     for i in input_string:
         if i.isdigit():
-            digit_string += number_list[int(i)]
-            digit_string += " "
-    digit_string.rstrip()
+            temp_list.append(number_list[int(i)])
+            
+    digit_string = " ".join(temp_list)
     
     return digit_string
 
@@ -74,7 +74,7 @@ def to_camel_case(underscore_str):
     """
     if "_" in underscore_str:
         temp_words = underscore_str.strip("_").split("_")
-        
+
         camelcase_str = temp_words[0].lower()
         for i in temp_words[1:]:
             camelcase_str += i.capitalize()
